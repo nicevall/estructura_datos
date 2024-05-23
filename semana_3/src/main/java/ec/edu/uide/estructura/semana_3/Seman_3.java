@@ -33,7 +33,7 @@ public class Seman_3 {
         
         TipoOrdenamiento io = new TipoOrdenamiento();
         
-        int cantidadElementos = 100;
+        int cantidadElementos = 10000;
         
         // 1. ordenamiento Burbuja
         long tiempoInicio = System.nanoTime();
