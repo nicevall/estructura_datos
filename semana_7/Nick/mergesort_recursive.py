@@ -1,4 +1,17 @@
 def mergesort_recursive(arr):
+    """
+    Ordena una lista utilizando el algoritmo de MergeSort de manera recursiva.
+
+    Parámetros:
+    arr (list): La lista de elementos a ordenar.
+
+    Retorna:
+    list: La lista ordenada.
+
+    Ejemplo de uso:
+    >>> mergesort_recursive([38, 27, 43, 3, 9, 82, 10])
+    [3, 9, 10, 27, 38, 43, 82]
+    """
     if len(arr) <= 1:
         return arr
 
@@ -9,6 +22,16 @@ def mergesort_recursive(arr):
     return merge(left, right)
 
 def merge(left, right):
+    """
+    Mezcla dos listas ordenadas en una sola lista ordenada.
+
+    Parámetros:
+    left (list): La primera lista ordenada.
+    right (list): La segunda lista ordenada.
+
+    Retorna:
+    list: La lista combinada y ordenada.
+    """
     result = []
     i = j = 0
     while i < len(left) and j < len(right):

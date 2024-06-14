@@ -1,4 +1,17 @@
 def quicksort_recursive(arr):
+    """
+    Ordena una lista utilizando el algoritmo de QuickSort de manera recursiva.
+
+    Parámetros:
+    arr (list): La lista de elementos a ordenar.
+
+    Retorna:
+    list: La lista ordenada.
+
+    Ejemplo de uso:
+    >>> quicksort_recursive([3, 6, 8, 10, 1, 2, 1])
+    [1, 1, 2, 3, 6, 8, 10]
+    """
     if len(arr) <= 1:
         return arr
     else:
@@ -14,4 +27,3 @@ if __name__ == "__main__":
     print("Original:", arr)
     sorted_arr = quicksort_recursive(arr)
     print("Ordenado:", sorted_arr)
-

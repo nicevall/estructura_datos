@@ -1,30 +1,36 @@
-def mergesort_iterative(arr):
-    width = 1
-    n = len(arr)
-    while width < n:
-        for i in range(0, n, 2 * width):
-            left = arr[i:i + width]
-            right = arr[i + width:i + 2 * width]
-            arr[i:i + 2 * width] = merge(left, right)
-        width *= 2
+def quicksort_iterative(arr):
+    """
+    Ordena una lista utilizando el algoritmo de QuickSort de manera iterativa.
 
-def merge(left, right):
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
+    Parámetros:
+    arr (list): La lista de elementos a ordenar.
+
+    Ejemplo de uso:
+    >>> quicksort_iterative([9, 7, 5, 11, 12, 2, 14, 3, 10, 6])
+    [2, 3, 5, 6, 7, 9, 10, 11, 12, 14]
+    """
+    stack = [(0, len(arr) - 1)]
+    
+    while stack:
+        start, end = stack.pop()
+        if start >= end:
+            continue
+
+        pivot = arr[end]
+        left = start
+        for i in range(start, end):
+            if arr[i] < pivot:
+                arr[i], arr[left] = arr[left], arr[i]
+                left += 1
+        arr[left], arr[end] = arr[end], arr[left]
+
+        stack.append((start, left - 1))
+        stack.append((left + 1, end))
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    arr = [5, 4, 3, 2, 1]
+    arr = [9, 7, 5, 11, 12, 2, 14, 3, 10, 6]
     print("Original:", arr)
-    mergesort_iterative(arr)
+    quicksort_iterative(arr)
     print("Ordenado:", arr)
+
